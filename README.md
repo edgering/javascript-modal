@@ -4,15 +4,15 @@ Code repository for the tutorial by [Ken Wheeler](http://kenwheeler.github.io/)
 
 Demo found at: http://codepen.io/kenwheeler/pen/LvGjK/
 
-Extended to: 
+## Extended to: 
 
-##Accept params by data attributes:
+### Accept params by data attributes:
 
     <div id="jsm" data-auto-open="true" data-max-width="80%" data-max-height="false">    
       <a href="..."><img src="..." /></a>
     </div>
 
-##Omit trigger button
+### Omit trigger button
 
     var myContent = document.getElementById('jsm');
 
