@@ -1,4 +1,12 @@
+/* Helper class */
+
+.off
+{
+    display: none;
+}
+
 /* Modal Base CSS */
+
 .scotch-overlay
 {
     position: fixed;
@@ -71,6 +79,7 @@
 }
 
 /* Close Button */
+
 .scotch-close
 {
     font-family: Helvetica,Arial,sans-serif;
@@ -167,30 +176,7 @@
             transition: 500ms opacity 500ms ease;
 }
 
-/* Demo Styles */
-html
-{
-    box-sizing: border-box;
-}
-
-*
-{
-    box-sizing: inherit;
-}
-
-body
-{
-    font-family: Helvetica,Arial,san-serif;
-    font-size: 16px;
-
-    margin: 0;
-    padding: 0;
-}
-
-#content
-{
-    display: none;
-}
+/* Trigger button */
 
 .trigger-button
 {
