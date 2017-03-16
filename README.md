@@ -6,6 +6,8 @@ Demo found at: http://codepen.io/kenwheeler/pen/LvGjK/
 
 ## Extension
 
+- global width & height units
+
 ### Accept params by data attributes:
 
     <div id="jsm" data-auto-open="true" data-max-width="80%" data-max-height="false">    
