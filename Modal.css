@@ -80,17 +80,21 @@
 
 /* for image popups */
 
-.scotch-modal img.full 
+.scotch-modal img 
 { 
     max-width: 100%;
-    width: 100%;
-}        
+}
 
+.scotch-modal img.full
+{
+    width: 100%;
+}
+        
 .scotch-modal a 
 {
     display: block;
     line-height: 100%;
-}    
+}
     
 /* Close Button */
 
