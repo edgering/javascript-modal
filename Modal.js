@@ -18,32 +18,40 @@
       className: 'fade-and-drop',
       closeButton: true,
       content: "",
-      maxWidth: 600,
-      minWidth: 280,
+      maxWidth: "80%",
+      minWidth: "40%",
       overlay: true
     }
 
     // Create options by extending defaults with the passed in arugments
-    if (arguments[0] && typeof arguments[0] === "object") {
+    
+    if (arguments[0] && typeof arguments[0] === "object") 
+    {
       this.options = extendDefaults(defaults, arguments[0]);
+      
+      // To allow read params set by data attributes
+      
+      this.options = extendDefaults(defaults, arguments[0].content.dataset);
     }
 
-    if(this.options.autoOpen === true) this.open();
-
+    if (this.options.autoOpen === true || this.options.autoOpen == 'true') 
+    {
+      this.open();
+    }  
   }
 
   // Public Methods
 
   Modal.prototype.close = function() {
-    var _ = this;
+    var me = this;
     this.modal.className = this.modal.className.replace(" scotch-open", "");
     this.overlay.className = this.overlay.className.replace(" scotch-open",
       "");
     this.modal.addEventListener(this.transitionEnd, function() {
-      _.modal.parentNode.removeChild(_.modal);
+      me.modal.parentNode.removeChild(me.modal);
     });
     this.overlay.addEventListener(this.transitionEnd, function() {
-      if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
+      if(me.overlay.parentNode) me.overlay.parentNode.removeChild(me.overlay);
     });
   }
 
@@ -80,8 +88,8 @@
     // Create modal element
     this.modal = document.createElement("div");
     this.modal.className = "scotch-modal " + this.options.className;
-    this.modal.style.minWidth = this.options.minWidth + "px";
-    this.modal.style.maxWidth = this.options.maxWidth + "px";
+    this.modal.style.minWidth = setUnits(this.options.minWidth);
+    this.modal.style.maxWidth = setUnits(this.options.maxWidth);
 
     // If closeButton option is true, add a close button
     if (this.options.closeButton === true) {
@@ -113,7 +121,9 @@
   }
 
   function extendDefaults(source, properties) {
+    
     var property;
+    
     for (property in properties) {
       if (properties.hasOwnProperty(property)) {
         source[property] = properties[property];
@@ -131,14 +141,33 @@
     if (this.overlay) {
       this.overlay.addEventListener('click', this.close.bind(this));
     }
-
   }
 
   function transitionSelect() {
+    
     var el = document.createElement("div");
-    if (el.style.WebkitTransition) return "webkitTransitionEnd";
-    if (el.style.OTransition) return "oTransitionEnd";
+    
+    if (el.style.WebkitTransition) 
+    {
+      return "webkitTransitionEnd";
+    }
+    
+    if (el.style.OTransition) 
+    {
+      return "oTransitionEnd";
+    }
+    
     return 'transitionend';
   }
-
+  
+  // To allow set numbers already with units
+  
+  function setUnits(unit) {
+    
+    if (unit ==  parseFloat(unit)){
+      unit = unit + 'px';
+    }
+    
+    return unit;
+  }  
 }());
