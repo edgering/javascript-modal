@@ -18,8 +18,8 @@
       className: 'fade-and-drop',
       closeButton: true,
       content: "",
-      maxWidth: "80%",
-      minWidth: "40%",
+      maxWidth: false,
+      minWidth: false,
       overlay: true
     }
 
@@ -88,8 +88,14 @@
     // Create modal element
     this.modal = document.createElement("div");
     this.modal.className = "scotch-modal " + this.options.className;
-    this.modal.style.minWidth = setUnits(this.options.minWidth);
-    this.modal.style.maxWidth = setUnits(this.options.maxWidth);
+    
+    if (this.options.minWidth !== false) {
+      this.modal.style.minWidth = setUnits(this.options.minWidth);
+    }  
+    
+    if (this.options.maxWidth !== false) {
+      this.modal.style.maxWidth = setUnits(this.options.maxWidth);
+    }
 
     // If closeButton option is true, add a close button
     if (this.options.closeButton === true) {
