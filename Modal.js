@@ -153,13 +153,11 @@
     
     var el = document.createElement("div");
     
-    if (el.style.WebkitTransition) 
-    {
+    if (el.style.WebkitTransition) {
       return "webkitTransitionEnd";
     }
     
-    if (el.style.OTransition) 
-    {
+    if (el.style.OTransition) {
       return "oTransitionEnd";
     }
     
@@ -170,7 +168,7 @@
   
   function setUnits(unit) {
     
-    if (unit ==  parseFloat(unit)){
+    if (unit == parseFloat(unit)){
       unit = unit + 'px';
     }
     
